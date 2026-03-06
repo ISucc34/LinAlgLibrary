@@ -14,5 +14,18 @@ int main(){
         cout << endl;
         
     }
+
+    mat B = zeros(2,2);
+    
+    for(int i = 0; i < B.rows; i++)
+    {
+        for(int j = 0; j < B.cols; j++)
+        {
+            cout << B.arr[i][j] << " ";
+        }
+        cout << endl;
+        
+    }
+
     return 0;
 }
