@@ -1,11 +1,24 @@
 #include "linAlg.h"
 
+void mat::print(){
+
+    for(int i = 0; i < rows; i++)
+    {
+        for(int j = 0; j<cols; j++)
+        {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
 mat ones(size_t r, size_t c)
 {
     mat m;
 
     m.rows = r;
     m.cols = c;
+    m.arr = new int*[r];
 
     for(size_t i = 0; i < r; i++)
     {
@@ -15,6 +28,7 @@ mat ones(size_t r, size_t c)
             m.arr[i][j] = 1;
         }
     }
+
     return m;
 }
 

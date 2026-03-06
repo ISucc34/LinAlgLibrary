@@ -18,6 +18,8 @@ struct mat
     
     int **arr;
 
+    void print();
+
 };
 
 mat ones(size_t r, size_t c);

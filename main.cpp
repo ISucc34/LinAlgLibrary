@@ -17,7 +17,7 @@ int main(){
 
     mat B = zeros(2,2);
     
-    for(int i = 0; i < B.rows; i++)
+    /*for(int i = 0; i < B.rows; i++)
     {
         for(int j = 0; j < B.cols; j++)
         {
@@ -25,7 +25,9 @@ int main(){
         }
         cout << endl;
         
-    }
+    }*/
+
+    B.print();
 
     return 0;
 }
