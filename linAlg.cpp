@@ -18,7 +18,7 @@ mat ones(size_t r, size_t c)
 
     m.rows = r;
     m.cols = c;
-    m.arr = new int*[r];
+    m.arr  = new int*[r];
 
     for(size_t i = 0; i < r; i++)
     {
@@ -50,5 +50,29 @@ mat zeros(size_t r, size_t c)
     }
     return m;
 }   
+
+mat eye(size_t n)
+{
+    mat m;
+
+    m.rows = n;
+    m.cols = n;
+    m.arr  = new int*[n];
+
+    for(int i = 0; i<n; i++)
+    {
+        m.arr[i] = new int[n];
+        
+        for(int j = 0; j<n; j++)
+        {   
+            m.arr[i][j] = 0;
+
+        }
+        m.arr[i][i] = 1;
+    }
+
+    return m;
+    
+}
 
 

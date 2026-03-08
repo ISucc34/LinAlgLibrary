@@ -15,7 +15,7 @@ int main(){
         
     }
 
-    mat B = zeros(2,2);
+    mat B = eye(4);
     
     /*for(int i = 0; i < B.rows; i++)
     {
