@@ -33,6 +33,9 @@ mat test(size_t arr[]);
 
 mat eye(size_t n);
 
+mat transform(mat m, int dimension);
+
+mat operator *(const mat &mLhs, const mat &mRhs);
 
 
 

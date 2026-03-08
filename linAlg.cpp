@@ -3,7 +3,7 @@
 void mat::print(){
 
     for(int i = 0; i < rows; i++)
-    {
+    {   
         for(int j = 0; j<cols; j++)
         {
             cout << arr[i][j] << " ";
@@ -75,4 +75,13 @@ mat eye(size_t n)
     
 }
 
+mat transform(mat m, int dimension);
 
+mat operator *(const mat &mLhs, const mat &mRhs)
+{
+    if(mLhs.cols != mRhs.rows)
+    {
+        cout << "Left hand matrix columns is not equal to Right hand matrix rows";
+    }
+    return mLhs;
+}

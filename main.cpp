@@ -15,7 +15,7 @@ int main(){
         
     }
 
-    mat B = eye(4);
+    mat B = ones(3,3);
     
     /*for(int i = 0; i < B.rows; i++)
     {
@@ -28,6 +28,8 @@ int main(){
     }*/
 
     B.print();
+
+    A*B;
 
     return 0;
 }
