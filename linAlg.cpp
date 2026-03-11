@@ -1,87 +1,68 @@
 #include "linAlg.h"
 
 void mat::print(){
+    for(int i = 0; i < this->cols*this->rows; i++)
+    {
+        cout << this->arr[i] << " ";
+    }
+   
 
-    for(int i = 0; i < rows; i++)
-    {   
-        for(int j = 0; j<cols; j++)
-        {
-            cout << arr[i][j] << " ";
-        }
-        cout << endl;
+}
+
+mat::mat(size_t r, size_t c) {
+    this->cols = c;
+    this->rows = r;
+
+    this->arr = new int(r*c);
+}
+
+void mat::fill(int value) {
+
+    for(int i = 0; i < this->rows*this->cols; i++)
+    {
+        this->arr[i] = value;
     }
 }
 
-mat ones(size_t r, size_t c)
-{
-    mat m;
 
-    m.rows = r;
-    m.cols = c;
-    m.arr  = new int*[r];
+int mat::getValue(int r, int c){
 
-    for(size_t i = 0; i < r; i++)
-    {
-        m.arr[i] = new int[c];
-        for(size_t j = 0; j < c; j++)
-        {
-            m.arr[i][j] = 1;
-        }
-    }
+    int x = this->arr[r*this->cols + c];
 
-    return m;
+    return x;
 }
 
-mat zeros(size_t r, size_t c)
+void mat::setValue(int r, int c, int val)
 {
-    mat m;
+    this->arr[r * this->cols + c] = val;
+}
 
-    m.rows = r;
-    m.cols = c;
-    m.arr  = new int*[r];
 
-    for(size_t i = 0; i < r; i++)
-    {
-        m.arr[i] = new int[c];
-        for(size_t j = 0; j < c; j++)
-        {
-            m.arr[i][j] = 0;
-        }
-    }
-    return m;
-}   
 
 mat eye(size_t n)
 {
-    mat m;
+    mat m(n,n);
+    m.fill(0);
 
-    m.rows = n;
-    m.cols = n;
-    m.arr  = new int*[n];
-
-    for(int i = 0; i<n; i++)
+    for(int i = 0; i < n; i++)
     {
-        m.arr[i] = new int[n];
-        
-        for(int j = 0; j<n; j++)
-        {   
-            m.arr[i][j] = 0;
-
-        }
-        m.arr[i][i] = 1;
+        m.setValue(i,i, 1);   
     }
 
     return m;
-    
 }
 
 mat transform(mat m, int dimension);
 
-mat operator *(const mat &mLhs, const mat &mRhs)
+/*mat operator *(const mat &mLhs, const mat &mRhs)
 {
     if(mLhs.cols != mRhs.rows)
     {
         cout << "Left hand matrix columns is not equal to Right hand matrix rows";
     }
+    
+   mat product;
+
+
     return mLhs;
-}
+}*/
