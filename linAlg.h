@@ -26,9 +26,12 @@ public:
     void fill(int value);
     void print();
     void setValue(int r, int c, int val);
-    int getValue(int r, int c);
+    int  getValue(int r, int c);
     
+    const size_t getRow();
+    const size_t getCol();
 
+    void operator * (int scalar);
 
 };
 

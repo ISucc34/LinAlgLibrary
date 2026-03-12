@@ -3,9 +3,10 @@
 
 int main(){
 
-    mat a(2, 2);
-    a = eye(2);
-    
+    mat a(2,3);
+    a.fill(2);
+
+    a*2;
     a.print();
 
 

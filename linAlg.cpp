@@ -1,12 +1,25 @@
 #include "linAlg.h"
 
 void mat::print(){
-    for(int i = 0; i < this->cols*this->rows; i++)
+    for(int i = 0; i < this->rows; i++)
     {
-        cout << this->arr[i] << " ";
+        for (int j = 0; j<this->cols; j++)
+        {
+            cout << this->arr[i*this->cols+j] << " ";
+        }
+        cout << endl;
+        
     }
-   
+}
 
+const size_t mat::getRow()
+{
+    return this->rows;
+}
+
+const size_t mat::getCol()
+{
+    return this->cols;    
 }
 
 mat::mat(size_t r, size_t c) {
@@ -37,6 +50,16 @@ void mat::setValue(int r, int c, int val)
     this->arr[r * this->cols + c] = val;
 }
 
+void mat::operator *(int scalar)
+{
+    for(int i = 0; i < this->cols*this->rows; i++)
+    {
+        this->arr[i] = this->arr[i] * scalar;
+    }
+}
+
+
+
 
 
 mat eye(size_t n)
@@ -54,15 +77,18 @@ mat eye(size_t n)
 
 mat transform(mat m, int dimension);
 
-/*mat operator *(const mat &mLhs, const mat &mRhs)
+
+mat operator *(mat mLhs, mat mRhs)
 {
-    if(mLhs.cols != mRhs.rows)
+
+    mat m(mLhs.getRow(), mRhs.getCol());
+
+    if(mLhs.getCol() != mRhs.getRow())
     {
         cout << "Left hand matrix columns is not equal to Right hand matrix rows";
     }
     
-   mat product;
+    
 
-
-    return mLhs;
-}*/
+    return m;
+}
