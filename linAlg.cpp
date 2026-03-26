@@ -26,7 +26,7 @@ mat::mat(size_t r, size_t c) {
     this->cols = c;
     this->rows = r;
 
-    this->arr = new int(r*c);
+    this->arr = new int[r * c];
 }
 
 void mat::fill(int value) {
@@ -58,7 +58,13 @@ void mat::operator *(int scalar)
     }
 }
 
-
+void operator * (int scalar, mat m)
+{
+    for(int i = 0; i < m.cols*m.rows; i++)
+    {
+        m.arr[i] = m.arr[i] * scalar;
+    }
+}
 
 
 

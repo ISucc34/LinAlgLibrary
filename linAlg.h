@@ -32,7 +32,7 @@ public:
     const size_t getCol();
 
     void operator * (int scalar);
-
+    friend void operator * (int scalar, mat m);
 };
 
 
