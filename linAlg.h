@@ -22,17 +22,22 @@ private:
     int *arr;
     
 public:
+    mat();
     mat(size_t r, size_t c);
+
     void fill(int value);
     void print();
     void setValue(int r, int c, int val);
     int  getValue(int r, int c);
     
+    void transpose();
+
     const size_t getRow();
     const size_t getCol();
 
     void operator * (int scalar);
     friend void operator * (int scalar, mat m);
+
 };
 
 
@@ -44,7 +49,8 @@ mat eye(size_t n);
 
 mat transform(mat m, int dimension);
 
-mat operator *(const mat &mLhs, const mat &mRhs);
+mat operator *(mat mLhs, mat mRhs);
+
 
 
 

@@ -1,9 +1,10 @@
 #include <iostream>
+#include <exception>
 #include "linAlg.h"
 
 int main(){
 
-    mat a(2,3);
+    mat a(3,2);
     a.fill(2);
 
 
@@ -18,6 +19,10 @@ int main(){
     b*2;
     b.print();
 
+    mat c;
+    c = a*b;
+
+    c.print();
 
 
     return 0;

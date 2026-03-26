@@ -1,4 +1,5 @@
 #include "linAlg.h"
+#include <stdexcept>
 
 void mat::print(){
     for(int i = 0; i < this->rows; i++)
@@ -10,6 +11,10 @@ void mat::print(){
         cout << endl;
         
     }
+}
+
+mat::mat(){
+
 }
 
 const size_t mat::getRow()
@@ -83,6 +88,23 @@ mat eye(size_t n)
 
 mat transform(mat m, int dimension);
 
+void mat::transpose(){
+    
+    int temp[rows*cols];
+
+    for(int i =0; i < rows*cols; i++)
+    {
+        temp[i] = arr[i];
+    }
+
+    //swap
+    rows += cols;
+    cols -= rows;
+    rows -= cols;
+
+    
+}
+
 
 mat operator *(mat mLhs, mat mRhs)
 {
@@ -91,10 +113,14 @@ mat operator *(mat mLhs, mat mRhs)
 
     if(mLhs.getCol() != mRhs.getRow())
     {
-        cout << "Left hand matrix columns is not equal to Right hand matrix rows";
+        throw invalid_argument("Left hand side matrix columns do not match Right hand side matrix rows");
     }
-    
-    
+
+    for(int i = 0; i < mLhs.getRow(); i ++)
+    {
+        
+    } 
 
     return m;
 }
+
