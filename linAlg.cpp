@@ -1,5 +1,6 @@
 #include "linAlg.h"
 #include <stdexcept>
+#include <algorithm>
 
 void mat::print(){
     for(int i = 0; i < this->rows; i++)
@@ -90,17 +91,20 @@ mat transform(mat m, int dimension);
 
 void mat::transpose(){
     
+
     int temp[rows*cols];
 
-    for(int i =0; i < rows*cols; i++)
+    for(int i = 0; i < rows*cols; i++)
     {
-        temp[i] = arr[i];
+        temp[i] = arr[i* cols + rows];
     }
 
     //swap
-    rows += cols;
-    cols -= rows;
-    rows -= cols;
+    swap(rows, cols);
+
+
+    arr = temp;
+
 
     
 }

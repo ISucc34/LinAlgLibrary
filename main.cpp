@@ -18,12 +18,18 @@ int main(){
 
     b*2;
     b.print();
+    cout << endl;
 
     mat c;
     c = a*b;
 
     c.print();
 
+
+    cout << endl;
+    a.print();
+    a.transpose();
+    a.print();
 
     return 0;
 }
