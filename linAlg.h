@@ -24,9 +24,11 @@ private:
 public:
     mat();
     mat(size_t r, size_t c);
-
+	mat(const mat &o);
+	~mat();
     void fill(int value);
-    void print();
+    void identity();
+    void random();
     void setValue(int r, int c, int val);
     int  getValue(int r, int c);
     
@@ -35,21 +37,14 @@ public:
     const size_t getRow();
     const size_t getCol();
 
-    void operator * (int scalar);
-    friend void operator * (int scalar, mat m);
-
+    mat operator * (int scalar);
+	mat& operator=(const mat& o);
+    friend ostream& operator<<(ostream& os, const mat& dt);
 };
-
-
-mat create(size_t r, size_t c);
-
-mat fill(size_t r, size_t c, int value);
-
-mat eye(size_t n);
 
 mat transform(mat m, int dimension);
 
-mat operator *(mat mLhs, mat mRhs);
+mat operator *(mat &mLhs, mat &mRhs);
 
 
 
