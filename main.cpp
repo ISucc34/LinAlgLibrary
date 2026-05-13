@@ -7,29 +7,29 @@ int main(){
     mat a(3,2);
     a.fill(2);
 
-
-    a*2;
-    a.print();
+    a=a*2;
+	cout << a;
 
     cout << endl;
 
     mat b(2,3);
     b.fill(2);
 
-    b*2;
-    b.print();
-    cout << endl;
+    b=b*2;
+	cout << b;
 
-    mat c;
-    c = a*b;
+    // mat c;
+    // c = a*b;
 
-    c.print();
+	// cout << c;
 
+	cout << '\n';
+	mat d(3, 3);
 
-    cout << endl;
-    a.print();
-    a.transpose();
-    a.print();
+	d.random();
+	cout << d;
+	d.transpose();
+	cout << d;
 
     return 0;
 }
